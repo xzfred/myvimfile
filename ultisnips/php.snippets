@@ -1,0 +1,57 @@
+
+snippet pubsv "Public static $var" b
+public static $${1:name};
+
+$0
+endsnippet
+
+snippet prisv "private static $var" b
+private static $${1:name};
+
+$0
+endsnippet
+
+snippet prosv "protected static $var" b
+protected static $${1:name};
+
+$0
+endsnippet
+
+snippet priv "private $var" b
+private $${1:name};
+
+$0
+endsnippet
+
+snippet setDefaultValue "setDefaultValue" b
+protected function setDefaultValue(&$data, $isNew)
+{
+    parent::setDefaultValue($data, $isNew);
+    if ($isNew) {
+		$0
+    }
+}
+endsnippet
+
+snippet setData "setData" b
+protected function setData($src, &$data, $isNew)
+{
+	parent::setData($src, $data, $isNew);
+	$0
+}
+endsnippet
+
+snippet setRelational "setRelational" b
+protected function setRelational($id, $src, $data, $isNew)
+{
+	$0
+}
+endsnippet
+
+snippet checkRef "checkRef" b
+protected function checkRef($src, &$data, $isNew)
+{
+	$0
+	return true;
+}
+endsnippet

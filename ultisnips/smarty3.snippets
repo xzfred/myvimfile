@@ -1,0 +1,53 @@
+priority -50
+
+extends html
+
+snippet {{ "variable" w
+{{$${1}}}${2}
+endsnippet
+
+snippet v "variable" w
+{{$${1:var}}}${2}
+endsnippet
+
+snippet va "variable" w
+{{$${1:row}['${2:id}']}}${3}
+endsnippet
+
+snippet vdef "variable|default:''" w
+{{$${1}|default:'${2}'}}${3}
+endsnippet
+
+snippet b "variable" b
+{{block name="${1}"}}
+	${2}
+{{/block}}
+endsnippet
+
+snippet foreach
+{{foreach $${1:data} as $${2:row}}}
+	${3}
+{{/foreach}}
+endsnippet
+
+snippet oif "one line if" w
+{{if ${1}}}${2}{{/if}}
+endsnippet
+
+snippet oife "one line if else" w
+{if ${1}}}${2}{{else}}${3}{{/if}}
+endsnippet
+
+snippet if
+{{if ${1}}}
+	${2}
+{{/if}}
+endsnippet
+
+snippet ife
+{{if ${1}}}
+	${2}
+{{else}}
+	${3}
+{{/if}}
+endsnippet
