@@ -346,19 +346,17 @@ source ~/.vim/plug.vim
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    "exe 'NeoCompleteLock'
-    :NeoCompleteDisable
-  endif
+    exe 'NeoCompleteLock'
+    echom 'Disabled autocomplete'
 endfunction
 
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    "exe 'NeoCompleteUnlock'
-    :NeoCompleteEnable
-  endif
+    exe 'NeoCompleteUnlock'
+    echom 'Enabled autocomplete'
 endfunction
+autocmd User MultipleCursorsPre  NeoCompleteLock
+autocmd User MultipleCursorsPost NeoCompleteUnlock
 
 "--------------------------------------------------------------}}}
 
