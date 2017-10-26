@@ -477,6 +477,7 @@
             endif
             let g:neocomplete#sources#omni#input_patterns.javascript = '\h\w*\|[^. \t]\.\w*'
             let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+            let g:neocomplete#sources#omni#input_patterns.rust = '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
             "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
             "let g:neocomplete#sources#omni#input_patterns.c =
             "\ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
@@ -772,8 +773,25 @@
     let g:lua_check_syntax = 1
     let g:lua_complete_omni = 1   
     "----------------------------------------------------------------------------------}}}
-    
-    "
+
+    "{{{ rust
+    "-------------------------------------------------------------------------------------
+    let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits',
+        \'i:impls,trait implementations',
+    \]
+    \}
+    "----------------------------------------------------------------------------------}}}
+
+
     "{{{ objective-c clang completed
     "-------------------------------------------------------------------------------------
     if count(g:my_bundle_groups, 'objc')

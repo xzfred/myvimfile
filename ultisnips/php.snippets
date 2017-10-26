@@ -55,3 +55,15 @@ protected function checkRef($src, &$data, $isNew)
 	return true;
 }
 endsnippet
+
+snippet formatField "formatField"
+protected function formatField(&$row, $f, $v)
+{
+	$0
+}
+endsnippet
+
+snippet cm "createModel"
+$${1:obj} = R::createModel(${2:'model'}, ${3:'Component'}, ${4:'app'});
+endsnippet
+

@@ -340,6 +340,21 @@ call plug#begin('~/.vim/plugged')
     "Plug 'VOoM'             
     Plug 'chrisbra/csv.vim'
     Plug 'amitab/vim-unite-cscope'
+    Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
+    "{{{ rust
+    "--------------------------------------------------------------
+    let g:racer_cmd = "/Users/xuzhi/.cargo/bin/racer"
+    let $RUST_SRC_PATH="/Users/xuzhi/my/rust/rust/src:/Users/xuzhi/.cargo/registry/src/github.com-1ecc6299db9ec823/"
+    Plug 'racer-rust/vim-racer'
+    Plug 'rust-lang/rust.vim'
+    let g:rustfmt_autosave = 1
+    let g:racer_experimental_completer = 1
+    au FileType rust nmap gd <Plug>(rust-def)
+    au FileType rust nmap gs <Plug>(rust-def-split)
+    au FileType rust nmap gx <Plug>(rust-def-vertical)
+    au FileType rust compiler cargo
+    "--------------------------------------------------------------}}}
 
 call plug#end()
 source ~/.vim/plug.vim
