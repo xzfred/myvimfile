@@ -33,7 +33,8 @@ if has('clipboard')
     endif
 endif
 
-let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'neocomplete', 'programming', 'php', 'javascript', 'html', 'misc', 'fugitive',]
+"let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'neocomplete', 'programming', 'php', 'javascript', 'html', 'misc', 'fugitive',]
+let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'youcompleteme', 'programming', 'php', 'javascript', 'html', 'misc', 'fugitive',]
 "--------------------------------------------------------------------------}}}
 
 "{{{ VIM 设置
@@ -177,7 +178,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'svermeulen/vim-easyclip' "替代YankRing
     Plug 'vim-scripts/matchit.zip'
 
-    Plug 'luochen1990/rainbow'
+    "Plug 'luochen1990/rainbow'
     Plug 'mbbill/undotree'
     Plug 'simnalamburt/vim-mundo'
 
@@ -186,6 +187,7 @@ call plug#begin('~/.vim/plugged')
     Plug '~/.vim/local/dash.vim'
     Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
+    Plug 'Valloric/YouCompleteMe'
     "Plug 'violetyk/neocomplete-php.vim'
     "Plug 'skeept/Ultisnips-neocomplete-unite'
     "--------------------------------------------------------------}}}
@@ -204,10 +206,10 @@ call plug#begin('~/.vim/plugged')
 
     "{{{ git
     "--------------------------------------------------------------
-    Plug 'airblade/vim-gitgutter'
+    "Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-    Plug 'gregsexton/gitv'
+    "Plug 'gregsexton/gitv'
     "--------------------------------------------------------------}}}
 
     "{{{ color
@@ -234,7 +236,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-eunuch'      " like UNIX helper
     Plug 'dbakker/vim-projectroot'    
 
-    Plug 'Shougo/neocomplete.vim'
+    "Plug 'Shougo/neocomplete.vim'
     Plug 'Shougo/vimproc.vim'
     Plug 'Shougo/unite.vim'
     Plug 'Shougo/neomru.vim'    
@@ -291,7 +293,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree' ", { 'on':  'NERDTreeToggle' }
 
     " Plugin outside ~/.vim/plugged with post-update hook
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
     " Unmanaged plugin (manually installed and updated)
     " Plug '~/my-prototype-plugin'
@@ -306,7 +308,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Valloric/MatchTagAlways'
     "Plug 'ryanoasis/vim-devicons'
     Plug 'tommcdo/vim-exchange'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     "{{{ vim 插件开发
     "--------------------------------------------------------------
@@ -324,7 +326,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'edkolev/tmuxline.vim' "tmux状态行生成器  启动错误
     Plug 'gregsexton/VimCalc'
     "Plug 'edkolev/promptline.vim' "快速生成一个power风格的shell提示状态行
-    Plug 'Chiel92/vim-autoformat'
+    "Plug 'Chiel92/vim-autoformat'
     "Plug 'lua-support'      
     "Plug 'vim-lua-ftplugin'
 
@@ -340,12 +342,14 @@ call plug#begin('~/.vim/plugged')
     "Plug 'VOoM'             
     Plug 'chrisbra/csv.vim'
     Plug 'amitab/vim-unite-cscope'
-    Plug 'jeffkreeftmeijer/vim-numbertoggle'
+    "Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
     "{{{ rust
     "--------------------------------------------------------------
-    let g:racer_cmd = "/Users/xuzhi/.cargo/bin/racer"
-    let $RUST_SRC_PATH="/Users/xuzhi/my/rust/rust/src:/Users/xuzhi/.cargo/registry/src/github.com-1ecc6299db9ec823/"
+
+    let g:racer_cmd = $HOME . "/.cargo/bin/racer"
+    "let $RUST_SRC_PATH = $HOME . "/.cargo/registry/src/github.com-1ecc6299db9ec823/:" . $HOME . "/.rustup/toolchains/nightly-x86_64-apple-darwin/" 
+    "let g:ycm_rust_src_path = $RUST_SRC_PATH
     Plug 'racer-rust/vim-racer'
     Plug 'rust-lang/rust.vim'
     let g:rustfmt_autosave = 1
