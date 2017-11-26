@@ -187,6 +187,7 @@ call plug#begin('~/.vim/plugged')
     Plug '~/.vim/local/dash.vim'
     Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
+    Plug 'Valloric/YouCompleteMe'
     "Plug 'violetyk/neocomplete-php.vim'
     "Plug 'skeept/Ultisnips-neocomplete-unite'
     "--------------------------------------------------------------}}}
@@ -346,8 +347,9 @@ call plug#begin('~/.vim/plugged')
 
     "{{{ rust
     "--------------------------------------------------------------
-    "let g:racer_cmd = "/Users/xuzhi/.cargo/bin/racer"
-    "let $RUST_SRC_PATH="/Users/xuzhi/my/rust/rust/src:/Users/xuzhi/.cargo/registry/src/github.com-1ecc6299db9ec823/"
+    "let g:racer_cmd = $HOME . "/.cargo/bin/racer"
+    "let $RUST_SRC_PATH = $HOME . "/.cargo/registry/src/github.com-1ecc6299db9ec823/:" . $HOME . "/.rustup/toolchains/nightly-x86_64-apple-darwin/" 
+    "let g:ycm_rust_src_path = $RUST_SRC_PATH
     Plug 'racer-rust/vim-racer'
     Plug 'rust-lang/rust.vim'
     let g:rustfmt_autosave = 1
