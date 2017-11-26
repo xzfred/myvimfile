@@ -27,12 +27,13 @@ endif
 
 let g:mwDefaultHighlightingPalette = 'extended'
 "colorscheme dejavu
-"colorscheme onedark
-colorscheme gruvbox
+colorscheme onedark
+let g:airline_theme='gruvbox'
+"colorscheme gruvbox
+"let g:airline_theme='gruvbox'
 "colorscheme wombat 
 "colorscheme hybrid
 "colorscheme molokai 
 "colorscheme Monokai
 "colorscheme Solarized
-let g:airline_theme='gruvbox'
 

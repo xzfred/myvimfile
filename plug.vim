@@ -8,6 +8,7 @@
     "{{{ 'Raimondi/delimitMate'                     "括号自动补全
     "-------------------------------------------------------------------------------------
     let delimitMate_matchpairs = "(:),[:],{:}"
+    let delimitMate_quotes = "' \" `"
     let delimitMate_expand_cr = 1
     let delimitMate_expand_space = 0
     let delimitMate_jump_expansion = 0
@@ -396,6 +397,7 @@
         let g:neocomplete#sources#buffer#max_keyword_width = 40
         "let g:neocomplete#sources#dictionary#dictionaries  = {'_': '', 'php': $HOME .'/.vim/dict/php.dict'}
         let g:neocomplete#enable_camel_case     = 1
+        let g:neocomplete#use_vimproc = 1
         
         "let g:neocomplete#fallback_mappings = ["\<C-x>\<C-o>", "\<C-x>\<C-n>"]
 
@@ -457,11 +459,11 @@
             endif
             "let g:neocomplete#sources._ = ['Ultisnips', 'file', 'buffer']
             "let g:neocomplete#sources.vim = ['Ultisnips', 'vim', 'file', 'dictionary', 'buffer', 'omni', 'member', 'tag']
-            "let g:neocomplete#sources.php = ['Ultisnips', 'file', 'omni', 'member', 'buffer', 'tag', 'php']
+            let g:neocomplete#sources.php = ['Ultisnips', 'file', 'omni', 'member', 'buffer', 'php']
 
             " Enable omni completion.
             autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType html,markdown,smarty3 setlocal omnifunc=htmlcomplete#CompleteTags
             "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
             autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
             autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -1055,7 +1057,7 @@
                      \ 'jump_to_def_split': ',jsd',
                      \ 'jump_to_def_vsplit': ',jvd',
                     \}
-        let g:PHP_default_indenting = 1 
+        let g:PHP_default_indenting = 0 
         "MyBundle 'vim-php/tagbar-phpctags.vim'
         if OSX()
             let g:tagbar_phpctags_bin='phpctags'
@@ -1103,7 +1105,7 @@
         let g:smarty_left_delimiter = '{{'
         let g:smarty_right_delimiter = '}}'
         au BufRead,BufNewFile *.tpl set filetype=smarty3
-        "au BufRead,BufNewFile *.html set filetype=smarty3
+        au BufRead,BufNewFile *.html set filetype=smarty3
         "au BufRead,BufNewFile *.volt set filetype=jinja
         "autocmd BufRead,BufNewFile,BufEnter *.volt UltiSnipsAddFiletypes htmljinja
         "set cscopetag
