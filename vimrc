@@ -414,6 +414,8 @@ call plug#begin('~/.vim/plugged')
     au FileType rust nmap gx <Plug>(rust-def-vertical)
     au FileType rust compiler cargo
     Plug 'cespare/vim-toml'
+    Plug 'rhysd/rust-doc.vim'
+    let g:rust_doc#downloaded_rust_doc_dir = '~/.rustup/toolchains/nightly-x86_64-apple-darwin'
     "--------------------------------------------------------------}}}
 
 call plug#end()
