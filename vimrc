@@ -173,9 +173,6 @@ let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'youcompleteme', 'p
     set bg=dark
     set termguicolors
     if !has("gui_running")
-        "colorscheme zenburn
-        "colorscheme desertEx
-        colorscheme onedark
         if $TERM_PROGRAM =~ "iTerm"
             if exists('$TMUX')
                 "let &t_SI = "\<Esc>[3 q"
@@ -421,6 +418,9 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 source ~/.vim/plug.vim
+        "colorscheme zenburn
+        "colorscheme desertEx
+        colorscheme onedark
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
