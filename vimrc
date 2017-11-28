@@ -256,6 +256,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'joonty/vdebug' , {'on':  'Run'}
     Plug 'alvan/vim-php-manual'
     Plug 'arnaud-lb/vim-php-namespace'
+    Plug 'Valloric/YouCompleteMe'
 
     "--------------------------------------------------------------}}}
 
@@ -401,8 +402,7 @@ call plug#begin('~/.vim/plugged')
 
     "{{{ rust
     "--------------------------------------------------------------
-
-    let g:racer_cmd = $HOME . "/.cargo/bin/racer"
+    "let g:racer_cmd = $HOME . "/.cargo/bin/racer"
     "let $RUST_SRC_PATH = $HOME . "/.cargo/registry/src/github.com-1ecc6299db9ec823/:" . $HOME . "/.rustup/toolchains/nightly-x86_64-apple-darwin/" 
     "let g:ycm_rust_src_path = $RUST_SRC_PATH
     Plug 'racer-rust/vim-racer'

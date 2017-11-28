@@ -8,7 +8,7 @@
     "{{{ 'Raimondi/delimitMate'                     "括号自动补全
     "-------------------------------------------------------------------------------------
     let delimitMate_matchpairs = "(:),[:],{:}"
-    let delimitMate_quotes = "*"
+    "let delimitMate_quotes = "' \" `"
     let delimitMate_expand_cr = 1
     let delimitMate_expand_space = 0
     let delimitMate_jump_expansion = 0
