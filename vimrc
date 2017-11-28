@@ -167,6 +167,64 @@ let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'youcompleteme', 'p
     map <leader>tM :tabmove<cr>
 "-----------------------------------------------------------------------------}}}
 
+"{{{ 颜色
+"-----------------------------------------------------------------------------
+    syntax on               " 启用语法高亮
+    set bg=dark
+    set termguicolors
+    if !has("gui_running")
+        "colorscheme zenburn
+        "colorscheme desertEx
+        colorscheme onedark
+        if $TERM_PROGRAM =~ "iTerm"
+            if exists('$TMUX')
+                "let &t_SI = "\<Esc>[3 q"
+                "let &t_EI = "\<Esc>[0 q"
+                let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+                let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+                colorscheme SlateDark
+            else
+                let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+                let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+            endif
+        endif
+
+        function MyTabLine()
+            let s = ''
+            for i in range(tabpagenr('$'))
+                " 选择高亮
+                if i + 1 == tabpagenr()
+                    let s .= '%#TabLineSel#'
+                else
+                    let s .= '%#TabLine#'
+                endif
+
+                " 设置标签页号 (用于鼠标点击)
+                let s .= '%' . (i + 1) . 'T'
+
+                " MyTabLabel() 提供标签
+                let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+            endfor
+
+            " 最后一个标签页之后用 TabLineFill 填充并复位标签页号
+            let s .= '%#TabLineFill#%T'
+
+            " 右对齐用于关闭当前标签页的标签
+            if tabpagenr('$') > 1
+                let s .= '%=%#TabLine#%999Xclose'
+            endif
+            return s
+        endfunction
+
+        function MyTabLabel(n)
+            let buflist = tabpagebuflist(a:n)
+            let winnr = tabpagewinnr(a:n)
+            return bufname(buflist[winnr - 1]) . '[' . a:n . ']'
+        endfunction
+
+        set tabline=%!MyTabLine()
+    endif
+    "--------------------------------------------------------------------------}}}
 " execute pathogen#infect('bnd/{}')
 
 "{{{ junegunn/vim-plug 插件设置
@@ -358,6 +416,7 @@ call plug#begin('~/.vim/plugged')
     au FileType rust nmap gs <Plug>(rust-def-split)
     au FileType rust nmap gx <Plug>(rust-def-vertical)
     au FileType rust compiler cargo
+    Plug 'cespare/vim-toml'
     "--------------------------------------------------------------}}}
 
 call plug#end()
@@ -374,69 +433,11 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
     echom 'Enabled autocomplete'
 endfunction
-autocmd User MultipleCursorsPre  NeoCompleteLock
-autocmd User MultipleCursorsPost NeoCompleteUnlock
+"autocmd User MultipleCursorsPre  NeoCompleteLock
+"autocmd User MultipleCursorsPost NeoCompleteUnlock
 
 "--------------------------------------------------------------}}}
 
-"{{{ 颜色
-"-----------------------------------------------------------------------------
-    syntax on               " 启用语法高亮
-    set bg=dark
-    set termguicolors
-    if !has("gui_running")
-        "colorscheme zenburn
-        "colorscheme desertEx
-        colorscheme onedark
-        if $TERM_PROGRAM =~ "iTerm"
-            if exists('$TMUX')
-                "let &t_SI = "\<Esc>[3 q"
-                "let &t_EI = "\<Esc>[0 q"
-                let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-                let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-                colorscheme SlateDark
-            else
-                let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-                let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-            endif
-        endif
-
-        function MyTabLine()
-            let s = ''
-            for i in range(tabpagenr('$'))
-                " 选择高亮
-                if i + 1 == tabpagenr()
-                    let s .= '%#TabLineSel#'
-                else
-                    let s .= '%#TabLine#'
-                endif
-
-                " 设置标签页号 (用于鼠标点击)
-                let s .= '%' . (i + 1) . 'T'
-
-                " MyTabLabel() 提供标签
-                let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
-            endfor
-
-            " 最后一个标签页之后用 TabLineFill 填充并复位标签页号
-            let s .= '%#TabLineFill#%T'
-
-            " 右对齐用于关闭当前标签页的标签
-            if tabpagenr('$') > 1
-                let s .= '%=%#TabLine#%999Xclose'
-            endif
-            return s
-        endfunction
-
-        function MyTabLabel(n)
-            let buflist = tabpagebuflist(a:n)
-            let winnr = tabpagewinnr(a:n)
-            return bufname(buflist[winnr - 1]) . '[' . a:n . ']'
-        endfunction
-
-        set tabline=%!MyTabLine()
-    endif
-    "--------------------------------------------------------------------------}}}
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
