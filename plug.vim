@@ -162,8 +162,15 @@
                 \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
                 \       },
                 \       'css': 0,
+                \		'php': {
+                \			'parentheses': [
+                \               'start=/(/ end=/)/ containedin=@phpClTop contains=@phpClTop', 
+                \               'start=/\[/ end=/\]/ containedin=@phpClTop contains=@phpClTop', 
+                \           ]
+                \		},
                 \   }
                 \}
+                "\               'start=/{/ end=/}/ containedin=@phpClTop contains=@phpClTop',
                 "\		'php': {
                 "\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold', 'start=/(/ end=/)/ containedin=@htmlPreproc contains=@phpClTop', 'start=/\[/ end=/\]/ containedin=@htmlPreproc contains=@phpClTop', 'start=/{/ end=/}/ containedin=@htmlPreproc contains=@phpClTop'],
                 \       },
@@ -314,13 +321,14 @@
         let g:ycm_complete_in_strings = 1
         let g:ycm_complete_in_comments = 1
         let g:ycm_collect_identifiers_from_comments_and_strings = 1
-        let g:ycm_collect_identifiers_from_tags_files = 0
+        let g:ycm_collect_identifiers_from_tags_files = 1
         let g:ycm_seed_identifiers_with_syntax = 1
         let g:ycm_key_list_select_completion = ['<Down>']
         let g:ycm_key_list_previous_completion = ['<Up>']
-        let g:ycm_cache_omnifunc=1
+        let g:ycm_cache_omnifunc=0
         let g:ycm_key_detailed_diagnostics = '<leader>yd'
         "let g:ycm_key_invoke_completion = '<nul>'
+        let g:ycm_log_level = 'error'
         let g:ycm_filetype_blacklist = {
                     \ 'tagbar' : 1,
                     \ 'nerdtree' : 1,
@@ -350,6 +358,9 @@
                     \   'html': [ '</' ],
                     \   'php' : ['->', '::'],
                     \ }
+        let g:ycm_filetype_specific_completion_to_disable = {
+            \ 'php': 1
+            \}
         nnoremap <leader>gi :YcmCompleter GoToInclude<CR> 
         nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR> 
         nnoremap <leader>gf :YcmCompleter GoToDefinition<CR> 
@@ -361,7 +372,7 @@
         "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-        "autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+        autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
         "----------------------------------------------------------------------------------}}}
     elseif count(g:my_bundle_groups, 'neocomplcache')
         execute pathogen#infect('bnd-neocc/{}')
@@ -1012,14 +1023,11 @@
         "let php_strict_blocks=1             " 
         "let php_fold_arrays=1               " 折叠数组
         let php_baselib=1                   " 高亮基础函数库
-        "let php_sql_query = 1               " 高亮字符串中的SQL关键字
         "let php_htmlInStrings = 0           " 不高亮字符串中的HTML关键字
         "let php_alt_properties = 1          "
         "let php_highlight_quotes = 0
         "let PHP_autoformatcomment = 1       " 自动格式注释
-        "let php_sync_method = 50
-        "let php_var_selector_is_identifier = 1
-        "let php_html_load = 1
+        let php_html_load = 0
         "let php_parent_error_close=0
         "let php_parent_error_open=0
         "let g:AutoComplPop_NotEnableAtStartup = 1

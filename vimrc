@@ -129,7 +129,7 @@ let g:my_bundle_groups=['sql', 'person', 'unite', 'general', 'youcompleteme', 'p
     set matchpairs+=<:>         " 增加<>匹配成对符号
     set whichwrap=b,s,<,>,[,]       " 行首行尾连接移动的操作
     "set foldmethod=indent
-    "set nofoldenable
+    set nofoldenable
     set smartindent
     "--------------------------------------------------------------------------}}}
     if has('syntax') && !exists('g:syntax_on')
@@ -233,7 +233,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'svermeulen/vim-easyclip' "替代YankRing
     Plug 'vim-scripts/matchit.zip'
 
-    "Plug 'luochen1990/rainbow'
+    Plug 'luochen1990/rainbow'
     Plug 'mbbill/undotree'
     Plug 'simnalamburt/vim-mundo'
 
@@ -242,7 +242,7 @@ call plug#begin('~/.vim/plugged')
     Plug '~/.vim/local/dash.vim'
     Plug 'honza/vim-snippets'
     Plug 'SirVer/ultisnips'
-    Plug 'Valloric/YouCompleteMe'
+    "Plug 'Valloric/YouCompleteMe'
     "Plug 'violetyk/neocomplete-php.vim'
     "Plug 'skeept/Ultisnips-neocomplete-unite'
     "--------------------------------------------------------------}}}
@@ -257,6 +257,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'alvan/vim-php-manual'
     Plug 'arnaud-lb/vim-php-namespace'
     Plug 'Valloric/YouCompleteMe'
+    "Plug '2072/vim-syntax-for-PHP'
+    Plug 'StanAngeloff/php.vim'
 
     "--------------------------------------------------------------}}}
 
@@ -265,7 +267,7 @@ call plug#begin('~/.vim/plugged')
     "Plug 'airblade/vim-gitgutter'
     Plug 'tpope/vim-fugitive'
     "Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-    "Plug 'gregsexton/gitv'
+    Plug 'gregsexton/gitv'
     "--------------------------------------------------------------}}}
 
     "{{{ color
@@ -417,6 +419,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'rhysd/rust-doc.vim'
     let g:rust_doc#downloaded_rust_doc_dir = '~/.rustup/toolchains/nightly-x86_64-apple-darwin'
     "--------------------------------------------------------------}}}
+    "
 
 call plug#end()
 source ~/.vim/plug.vim

@@ -64,6 +64,23 @@ protected function formatField(&$row, $f, $v)
 endsnippet
 
 snippet cm "createModel"
-$${1:obj} = R::createModel(${2:'model'}, ${3:'Component'}, ${4:'app'});
+R::createModel(${1:'model'}, ${2:'Component'}, ${3:'app'});
 endsnippet
 
+snippet em "empty"
+empty($${1:param})
+endsnippet
+
+snippet ifm "if (empty())" b
+if (empty(${1:param})) {
+	$0
+}
+endsnippet
+
+snippet ifem "if (empty())" b
+if (empty($${1:param})) {
+	$0
+} else {
+	$2
+}
+endsnippet
