@@ -164,12 +164,13 @@
                 \       'css': 0,
                 \		'php': {
                 \			'parentheses': [
-                \               'start=/(/ end=/)/ containedin=@phpClTop contains=@phpClTop ', 
+                \               'start=/(/ end=/)/ containedin=@phpClTop contains=@phpClTop', 
                 \               'start=/\[/ end=/\]/ containedin=@phpClTop contains=@phpClTop', 
-                \               'start=/{/ end=/}/ containedin=@phpClTop contains=@phpClTop'],
+                \           ]
                 \		},
                 \   }
                 \}
+                "\               'start=/{/ end=/}/ containedin=@phpClTop contains=@phpClTop',
                 "\		'php': {
                 "\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold', 'start=/(/ end=/)/ containedin=@htmlPreproc contains=@phpClTop', 'start=/\[/ end=/\]/ containedin=@htmlPreproc contains=@phpClTop', 'start=/{/ end=/}/ containedin=@htmlPreproc contains=@phpClTop'],
                 \       },
@@ -311,7 +312,7 @@
         set completeopt=menu ",noinsert
         "autocmd InsertLeave * if pumvisible() == 0|pclose|endif    "离开插入模式后自动关闭预览窗口"
         let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-        let g:ycm_min_num_of_chars_for_completion = 3
+        let g:ycm_min_num_of_chars_for_completion = 2
         let g:ycm_filepath_completion_use_working_dir = 1
         let g:ycm_autoclose_preview_window_after_completion = 0
         let g:ycm_autoclose_preview_window_after_insertion = 0
