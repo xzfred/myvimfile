@@ -1009,19 +1009,19 @@
         "let php_smart_semicolon = 0
         "let php_show_pcre = 0
         let php_folding=1                   " 使用代码折叠
-        let php_strict_blocks=1             " 
-        let php_fold_arrays=1               " 折叠数组
+        "let php_strict_blocks=1             " 
+        "let php_fold_arrays=1               " 折叠数组
         let php_baselib=1                   " 高亮基础函数库
-        let php_sql_query = 1               " 高亮字符串中的SQL关键字
-        let php_htmlInStrings = 0           " 不高亮字符串中的HTML关键字
-        let php_alt_properties = 1          "
-        let php_highlight_quotes = 0
-        let PHP_autoformatcomment = 1       " 自动格式注释
-        let php_sync_method = -1
-        let php_var_selector_is_identifier = 1
-        let php_html_load = 1
-        let php_parent_error_close=0
-        let php_parent_error_open=0
+        "let php_sql_query = 1               " 高亮字符串中的SQL关键字
+        "let php_htmlInStrings = 0           " 不高亮字符串中的HTML关键字
+        "let php_alt_properties = 1          "
+        "let php_highlight_quotes = 0
+        "let PHP_autoformatcomment = 1       " 自动格式注释
+        "let php_sync_method = 50
+        "let php_var_selector_is_identifier = 1
+        "let php_html_load = 1
+        "let php_parent_error_close=0
+        "let php_parent_error_open=0
         "let g:AutoComplPop_NotEnableAtStartup = 1
 
 "   Set to anything to enable:
