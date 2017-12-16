@@ -7,7 +7,7 @@ set guitablabel=%N\ %t
 set guitabtooltip=%F
 
 if OSX()
-    set guifont=Menlo:h12
+    set guifont=Menlo:h14
     "set guifont=Literation\ Mono\ Powerline\ Nerd\ Font\ Complete\ Mono:h16
     "set guifont=Knack\ Regular\ Nerd\ Font\ Complete:h14
 

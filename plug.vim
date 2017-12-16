@@ -312,7 +312,7 @@
         set completeopt=menu ",noinsert
         "autocmd InsertLeave * if pumvisible() == 0|pclose|endif    "离开插入模式后自动关闭预览窗口"
         let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-        let g:ycm_min_num_of_chars_for_completion = 2
+        let g:ycm_min_num_of_chars_for_completion = 1
         let g:ycm_filepath_completion_use_working_dir = 1
         let g:ycm_autoclose_preview_window_after_completion = 0
         let g:ycm_autoclose_preview_window_after_insertion = 0
@@ -325,7 +325,7 @@
         let g:ycm_seed_identifiers_with_syntax = 1
         let g:ycm_key_list_select_completion = ['<Down>']
         let g:ycm_key_list_previous_completion = ['<Up>']
-        let g:ycm_cache_omnifunc=0
+        let g:ycm_cache_omnifunc=1
         let g:ycm_key_detailed_diagnostics = '<leader>yd'
         "let g:ycm_key_invoke_completion = '<nul>'
         let g:ycm_log_level = 'error'
@@ -358,9 +358,7 @@
                     \   'html': [ '</' ],
                     \   'php' : ['->', '::'],
                     \ }
-        let g:ycm_filetype_specific_completion_to_disable = {
-            \ 'php': 1
-            \}
+        let g:ycm_filetype_specific_completion_to_disable = { }
         nnoremap <leader>gi :YcmCompleter GoToInclude<CR> 
         nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR> 
         nnoremap <leader>gf :YcmCompleter GoToDefinition<CR> 
@@ -1031,28 +1029,9 @@
         "let php_parent_error_close=0
         "let php_parent_error_open=0
         "let g:AutoComplPop_NotEnableAtStartup = 1
-
-"   Set to anything to enable:
-"     php_sql_query           SQL syntax highlighting inside strings
-"     php_htmlInStrings       HTML syntax highlighting inside strings
-"     php_baselib             highlighting baselib functions
-"     php_asp_tags            highlighting ASP-style short tags
-"     php_parent_error_close  highlighting parent error ] or )
-"     php_parent_error_open   skipping an php end tag, if there exists
-"                               an open ( or [ without a closing one
-"     php_oldStyle            use old colorstyle
-"     php_noShortTags         don't sync <? ?> as php
-"   Set to a specific value:
-"     php_folding = 1         fold classes and functions
-"     php_folding = 2         fold all { } regions
-"     php_sync_method = x  where x is an integer:
-"                       -1  sync by search ( default )
-"                       >0  sync at least x lines backwards
-"                       0   sync from start
-"   Set to 0 to _disable_:      (Added by Peter Hodge On June 9, 2006)
-"     php_special_functions = 0      highlight functions with abnormal behaviour
-"     php_alt_comparisons = 0        comparison operators in an alternate colour
-"     php_alt_assignByReference = 0  '= &' in an alternate colour
+        let php_sql_heredoc=0
+        let php_sql_nowdoc=0
+        let php_sql_query=0
         "----------------------------------------------------------------------------------}}}
         "let g:phpcomplete_add_class_extensions = ['yaf']
         
