@@ -1234,17 +1234,17 @@ call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
-let g:amap =  {}
-call leaderGuide#register_prefix_descriptions("\\", "g:amap")
-nnoremap <silent> \ :<c-u>LeaderGuide '\'<CR>
+"let g:amap =  {}
+"call leaderGuide#register_prefix_descriptions("\\", "g:amap")
+"nnoremap <silent> \ :<c-u>LeaderGuide '\'<CR>
 
-let g:bmap = {}
-call leaderGuide#register_prefix_descriptions("[", "g:bmap")
-nnoremap <silent> [ :<c-u>LeaderGuide '['<CR>
+"let g:bmap = {}
+"call leaderGuide#register_prefix_descriptions("[", "g:bmap")
+"nnoremap <silent> [ :<c-u>LeaderGuide '['<CR>
 
-let g:cmap = {}
-call leaderGuide#register_prefix_descriptions("]", "g:cmap")
-nnoremap <silent> ] :<c-u>LeaderGuide ']'<CR>
+"let g:cmap = {}
+"call leaderGuide#register_prefix_descriptions("]", "g:cmap")
+"nnoremap <silent> ] :<c-u>LeaderGuide ']'<CR>
 
 "let g:dmap = {}
 "call leaderGuide#register_prefix_descriptions("c", "g:dmap")
@@ -1262,9 +1262,9 @@ endfunction
 "call leaderGuide#register_prefix_descriptions("m", "g:fmap")
 "nnoremap <silent> m :<c-u>LeaderGuide 'm'<CR>
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
 let g:incsearch#auto_nohlsearch = 1
 "map n  <Plug>(incsearch-nohl-n)
 "map N  <Plug>(incsearch-nohl-N)

@@ -420,6 +420,15 @@ call plug#begin('~/.vim/plugged')
     let g:rust_doc#downloaded_rust_doc_dir = '~/.rustup/toolchains/nightly-x86_64-apple-darwin'
     "--------------------------------------------------------------}}}
     "
+    
+    "{{{ text
+    Plug 'kana/vim-textobj-user'    "自定义文本对象
+    Plug 'kana/vim-textobj-smarty'   "定义smarty块文本对象
+    Plug 'kana/vim-arpeggio'            "用复合键序列模拟一个按键
+    Plug 'kana/vim-vspec'            "vim 测试框架
+    Plug 'kana/vim-textobj-function' "定义函数文本对象
+    "--------------------------------------------------------------}}}
+    "
 
 call plug#end()
 source ~/.vim/plug.vim
