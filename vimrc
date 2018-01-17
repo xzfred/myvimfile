@@ -431,6 +431,9 @@ call plug#begin('~/.vim/plugged')
     "
 
 call plug#end()
+
+let $VIMDATA = '/Users/xuzhi/my/cloud'
+
 source ~/.vim/plug.vim
         "colorscheme zenburn
         "colorscheme desertEx
@@ -451,6 +454,7 @@ endfunction
 "autocmd User MultipleCursorsPost NeoCompleteUnlock
 
 "--------------------------------------------------------------}}}
+
 
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local

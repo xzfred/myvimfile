@@ -254,7 +254,10 @@
     "'xolox/vim-misc'                           "自动读取vim脚本
     "-------------------------------------------------------------------------------------
     let g:vimwiki_menu="Plugin.Vimwiki"
-    let g:vimwiki_list=[{'path': $VIMDATA . '/mywiki', 'path_html': $VIMDATA . '/mywiki_html', 'template_path': $VIMDATA . 'mywiki_template', 'template_default': 'def_template', 'template_ext': '.html'}]
+    let g:vimwiki_list=[
+                \ {'path': $VIMDATA . '/mywiki', 'path_html': $VIMDATA . '/my/mywiki_html', 'template_path': $VIMDATA . '/my/wiki_template', 'template_default': 'def_template', 'template_ext': '.html'} ,
+                \ {'path': $VIMDATA . '/GTD', 'path_html': $VIMDATA . '/my/GTD_html', 'template_path': $VIMDATA . '/my/wiki_template', 'template_default': 'def_template', 'template_ext': '.html'} ,
+                \ ]
     let g:calendar_diary = $VIMDATA.'/diary' " 日记保存的目录
     let g:vimwiki_folding = 'syntax'
 
@@ -269,7 +272,7 @@
           \ }
     "----------------------------------------------------------------------------------}}}
 
-    let g:UltiSnipsSnippetsDir = $VIMFILES . "/ultisnips"
+    "let g:UltiSnipsSnippetsDir = $VIMFILES . "/ultisnips"
     let g:UltiSnipsEditSplit = "horizontal"
     "{{{ 自动完成和代码片段
     "-------------------------------------------------------------------------------------
@@ -597,10 +600,10 @@
         nnoremap <silent> <Leader>jl  :<C-u>Unite -start-insert outline<CR>
         nnoremap <silent> <Leader>jt  :<C-u>Unite -start-insert tag<CR>
         nnoremap <silent> <Leader>jft  :<C-u>Unite -start-insert tag:%<CR>
-        autocmd BufEnter *
-        \   if empty(&buftype)
-        \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -start-insert -immediately tag<CR>
-        \|  endif
+        "autocmd BufEnter *
+        "\   if empty(&buftype)
+        "\|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -start-insert -immediately tag<CR>
+        "\|  endif
         let g:unite_source_tag_max_fname_length = 40
         nnoremap <silent> <Leader>hk  :<C-u>Unite -start-insert help<CR>
         nnoremap <silent> <Leader>te  :<C-u>Unite -start-insert emoji<CR>
