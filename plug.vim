@@ -1222,89 +1222,42 @@
     \ }
 "----------------------------------------------------------------------------------}}}
 
-nmap <leader>aC :<C-U>Calendar<CR>
-nmap <leader>ft :<C-U>NERDTreeToggle<CR>
-nmap <leader>au :<C-U>UndotreeToggle<CR>
-nmap <leader>sT :<C-U>CtrlSFToggle<CR>
-nmap <leader>ry :<C-U>YRShow<CR>
-nmap <leader>co :<C-U>copen<CR>
-nmap <leader>gs :<C-U>Gstatus<CR>
-nmap <leader>ac :<C-U>Calc<CR>
-nmap <leader>bi :<C-U>TagbarToggle<CR>
-nmap <leader>;; <Plug>NERDCommenterToggle
-
-"nmap <leader>1 :exe "1wincmd w"<CR>
-"nmap <leader>2 :exe "2wincmd w"<CR>
-"nmap <leader>3 :exe "3wincmd w"<CR>
-"nmap <leader>4 :exe "4wincmd w"<CR>
-"nmap <leader>5 :exe "5wincmd w"<CR>
-"nmap <leader>6 :exe "6wincmd w"<CR>
-"nmap <leader>7 :exe "7wincmd w"<CR>
-"nmap <leader>8 :exe "8wincmd w"<CR>
-"nmap <leader>9 :exe "9wincmd w"<CR>
+call MeetVim#init()
 
 "let g:_spacevim_mappings_prefixs['[SPC]'] = {'name' : '+SPC prefix'}
-let g:space_map = {}
+"let g:space_map = {}
 "let g:space_map['?'] = ['Unite menu:CustomKeyMaps -input=[SPC]', 'show mappings']
-let g:space_map.t = {'name' : '+Toggles'}
-let g:space_map.t.h = {'name' : '+Toggles highlight'}
-let g:space_map.t.m = {'name' : '+modeline'}
-let g:space_map.T = {'name' : '+UI toggles/themes'}
-let g:space_map.a = {'name' : '+Applications'}
-let g:space_map.b = {'name' : '+Buffers'}
-let g:space_map.c = {'name' : '+Comments'}
-let g:space_map.f = {'name' : '+Files'}
-let g:space_map.j = {'name' : '+Jump/Join/Split'}
-let g:space_map.m = {'name' : '+Major-mode'}
-let g:space_map.w = {'name' : '+Windows'}
-let g:space_map.p = {'name' : '+Projects'}
-let g:space_map.h = {'name' : '+Help'}
-let g:space_map.n = {'name' : '+Narrow/Numbers'}
-let g:space_map.q = {'name' : '+Quit'}
-let g:space_map.l = {'name' : '+Language Specified'}
-let g:space_map.s = {'name' : '+Searching/Symbol'}
-let g:space_map.r = {'name' : '+Registers/rings/resume'}
-let g:space_map.d = {'name' : '+Debug'}
-let g:space_map[';'] = {'name' : '+Toggles Comment Line'}
+"let g:space_map.t = {'name' : '+Toggles'}
+"let g:space_map.t.h = {'name' : '+Toggles highlight'}
+"let g:space_map.t.m = {'name' : '+modeline'}
+"let g:space_map.T = {'name' : '+UI toggles/themes'}
+"let g:space_map.a = {'name' : '+Applications'}
+"let g:space_map.b = {'name' : '+Buffers'}
+"let g:space_map.c = {'name' : '+Comments'}
+"let g:space_map.f = {'name' : '+Files'}
+"let g:space_map.j = {'name' : '+Jump/Join/Split'}
+"let g:space_map.m = {'name' : '+Major-mode'}
+"let g:space_map.w = {'name' : '+Windows'}
+"let g:space_map.p = {'name' : '+Projects'}
+"let g:space_map.h = {'name' : '+Help'}
+"let g:space_map.n = {'name' : '+Narrow/Numbers'}
+"let g:space_map.q = {'name' : '+Quit'}
+"let g:space_map.l = {'name' : '+Language Specified'}
+"let g:space_map.s = {'name' : '+Searching/Symbol'}
+"let g:space_map.r = {'name' : '+Registers/rings/resume'}
+"let g:space_map.d = {'name' : '+Debug'}
+"let g:space_map[';'] = {'name' : '+Toggles Comment Line'}
 
-for i in range(1, 9)
-    exe 'nmap <leader>' . i . ' :exe "' . i . 'wincmd w"<CR>'
-    let g:space_map[i] = ['wincmd', i . ' num windows']
-endfor
+"for i in range(1, 9)
+    "exe 'nmap <leader>' . i . ' :exe "' . i . 'wincmd w"<CR>'
+    "let g:space_map[i] = ['wincmd', i . ' num windows']
+"endfor
 
-let g:space_map.r.y = ['YRShow', 'open YRShow']
+"let g:space_map.r.y = ['YRShow', 'open YRShow']
 
-call leaderGuide#register_prefix_descriptions("<Space>", "g:space_map")
-nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
-
-"let g:amap =  {}
-"call leaderGuide#register_prefix_descriptions("\\", "g:amap")
-"nnoremap <silent> \ :<c-u>LeaderGuide '\'<CR>
-
-"let g:bmap = {}
-"call leaderGuide#register_prefix_descriptions("[", "g:bmap")
-"nnoremap <silent> [ :<c-u>LeaderGuide '['<CR>
-
-"let g:cmap = {}
-"call leaderGuide#register_prefix_descriptions("]", "g:cmap")
-"nnoremap <silent> ] :<c-u>LeaderGuide ']'<CR>
-
-"let g:dmap = {}
-"call leaderGuide#register_prefix_descriptions("c", "g:dmap")
-"nnoremap <silent> c :<c-u>LeaderGuide 'c'<CR>
-
-"let g:emap = {}
-"call leaderGuide#register_prefix_descriptions("g", "g:emap")
-"nnoremap <silent> g :<c-u>LeaderGuide 'g'<CR>
-"
-function! s:default_mapkey(mkey)
-    call signature#utils#Input()
-endfunction
-
-"let g:fmap = {'pre' : [' ', 'pre', function('s:default_mapkey')]}
-"call leaderGuide#register_prefix_descriptions("m", "g:fmap")
-"nnoremap <silent> m :<c-u>LeaderGuide 'm'<CR>
+"call leaderGuide#register_prefix_descriptions("<Space>", "g:space_map")
+"nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
+"vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 
 "map /  <Plug>(incsearch-forward)
 "map ?  <Plug>(incsearch-backward)
