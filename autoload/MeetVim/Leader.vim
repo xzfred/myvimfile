@@ -8,7 +8,6 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 function MeetVim#Leader#register_leader(leader, key_map_name) abort "{{{
-    let g:leaderGuide_flatten = 1
     call leaderGuide#register_prefix_descriptions(a:leader, a:key_map_name)
     exe 'nnoremap <silent> ' . a:leader . ' :<c-u>LeaderGuide "' . a:leader . '"<CR>'
     exe 'vnoremap <silent> ' . a:leader . ' :<c-u>LeaderGuideVisual "' . a:leader . '"<CR>'
@@ -46,7 +45,7 @@ function MeetVim#Leader#declare_prefix(mapdict, key, name, ...) abort "{{{
     let l:map[l:key]['name'] = a:name
 endfunction "}}}
 
-function MeetVim#Leader#set_keys(mapdict, key, callmap, ...) abort "{{{
+function MeetVim#Leader#set_keys(leader, mapdict, key, callmap, ...) abort "{{{
     let l:call_type = type(a:callmap) 
     let l:call_desc = ''
     let l:call_name = ''
@@ -86,7 +85,7 @@ function MeetVim#Leader#set_keys(mapdict, key, callmap, ...) abort "{{{
     
     "let l:call_name = ':exe "' . l:call_name . '"'
     "exe 'nmap <leader>' . a:key . ' ' . l:call_name . '<CR>'
-    exe 'nmap <silent> <leader>' . a:key . ' :' . l:call_name . '<CR>'
+    exe 'nmap <silent> ' . a:leader . a:key . ' :' . l:call_name . '<CR>'
     let l:map[l:key] = [l:call_name, l:call_desc]
 endfunction  "}}}
 

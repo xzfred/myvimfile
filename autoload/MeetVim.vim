@@ -48,6 +48,22 @@ set cpo&vim
     "let g:_spacevim_mappings_prefixs['[SPC]'] = {'name' : '+SPC prefix'}
     "let g:space_map['?'] = ['Unite menu:CustomKeyMaps -input=[SPC]', 'show mappings']
 "}}}
+"
+
+function s:display_filter() abort "{{{
+    let g:leaderGuide#displayname = substitute(g:leaderGuide#displayname, '\c<cr>$', '', '')
+    "echom g:leaderGuide#displayname
+endfunction "}}}
+
+function s:map_filter(layout, smap, dict) abort "{{{
+    let l:del = []
+    for key in a:smap
+        if type(a:dict[key]) == type([]) && a:dict[key][1] == 'jump window 1..9' 
+            call add(l:del, key)
+        endif
+    endfor
+    call filter(a:smap, {idx, val -> index(l:del, val) == -1})
+endfunction "}}}
 
 function MeetVim#init() abort " {{{
     let g:space_map = {}
@@ -75,8 +91,13 @@ function MeetVim#init() abort " {{{
     "call MeetVim#set_leader_keys('1..9', '', 'jump 1..9 window')
     call MeetVim#Leader#declare_prefix(g:space_map, '1..9', 'jump 1..9 window', '')
     for i in range(1, 9)
-        call MeetVim#set_leader_keys(i, i . 'wincmd w', 'jump ' . i . ' window')
+        call MeetVim#set_leader_keys(i, i . 'wincmd w', 'jump window 1..9')
+        "exe 'nmap <silent> <leader>' . i . ' :' . i . 'wincmd w<CR>'
     endfor
+
+    let g:leaderGuide_displayfunc = [function("s:display_filter")]
+    let g:leaderGuide#map_filter = [function("s:map_filter")]
+    let g:leaderGuide_flatten = 1
 
 nmap <leader>aC :<C-U>Calendar<CR>
 nmap <leader>ft :<C-U>NERDTreeToggle<CR>
@@ -91,6 +112,11 @@ nmap <leader>;; <Plug>NERDCommenterToggle
 
     call MeetVim#set_leader_keys('ry', 'YRShow', 'Open YRShow')
     call MeetVim#Leader#register_leader('<Space>', 'g:space_map')
+
+    let g:meetvim#leadermap#leftm = {}
+    call MeetVim#Leader#register_leader('[', 'g:meetvim#leadermap#leftm')
+    let g:meetvim#leadermap#rightm = {}
+    call MeetVim#Leader#register_leader(']', 'g:meetvim#leadermap#rightm')
 endfunction "}}}
 
 function MeetVim#declare_prefix(key, name) abort "{{{
@@ -103,7 +129,7 @@ function MeetVim#set_leader_keys(key, callmap, ...) abort "{{{
     if a:0 == 1
         let l:call_desc = a:1
     endif
-    call MeetVim#Leader#set_keys(g:space_map, a:key, a:callmap, l:call_desc)
+    call MeetVim#Leader#set_keys('<Space>', g:space_map, a:key, a:callmap, l:call_desc)
 endfunction "}}}
 
 let &cpo = s:cpo_save

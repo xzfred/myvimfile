@@ -340,7 +340,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'groenewege/vim-less'
     Plug 'vim-scripts/mimicpak'
     Plug 'haya14busa/incsearch.vim'
-    Plug 'hecal3/vim-leader-guide'
+    Plug 'xzfred/vim-leader-guide'
     Plug 'osyo-manga/vim-over'
     Plug 'mhinz/vim-startify'
     Plug 'joshdick/onedark.vim'
