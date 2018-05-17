@@ -99,16 +99,16 @@ function MeetVim#init() abort " {{{
     let g:leaderGuide#map_filter = [function("s:map_filter")]
     let g:leaderGuide_flatten = 1
 
-nmap <leader>aC :<C-U>Calendar<CR>
-nmap <leader>ft :<C-U>NERDTreeToggle<CR>
-nmap <leader>au :<C-U>UndotreeToggle<CR>
-nmap <leader>sT :<C-U>CtrlSFToggle<CR>
+map <leader>aC :<C-U>Calendar<CR>
+map <leader>ft :<C-U>NERDTreeToggle<CR>
+map <leader>au :<C-U>UndotreeToggle<CR>
+map <leader>sT :<C-U>CtrlSFToggle<CR>
 "nmap <leader>ry :<C-U>YRShow<CR>
-nmap <leader>co :<C-U>copen<CR>
-nmap <leader>gs :<C-U>Gstatus<CR>
-nmap <leader>ac :<C-U>Calc<CR>
-nmap <leader>bi :<C-U>TagbarToggle<CR>
-nmap <leader>;; <Plug>NERDCommenterToggle
+map <leader>co :<C-U>copen<CR>
+map <leader>gs :<C-U>Gstatus<CR>
+map <leader>ac :<C-U>Calc<CR>
+map <leader>bi :<C-U>TagbarToggle<CR>
+map <leader>;; <Plug>NERDCommenterToggle
 
     call MeetVim#set_leader_keys('ry', 'YRShow', 'Open YRShow')
     call MeetVim#Leader#register_leader('<Space>', 'g:space_map')
