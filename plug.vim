@@ -703,7 +703,7 @@
         "MyBundle 'dkprice/vim-easygrep'
         "MyBundle 'majutsushi/tagbar'                        "更好TList
 
-        nmap <silent> <Leader>d <Plug>DashSearch
+        nmap <silent> <Leader>dd <Plug>DashSearch
         nmap <silent> <Leader>dw <Plug>DashGlobalSearch
 
         "{{{ 代码搜索
@@ -1223,6 +1223,8 @@
 "----------------------------------------------------------------------------------}}}
 
 call MeetVim#init()
+"nmap <Leader>jd <Plug>VinegarUp
+call MeetVim#set_leader_keys('jd', '<Plug>VinegarUp', 'dired-jump')
 
 "map /  <Plug>(incsearch-forward)
 "map ?  <Plug>(incsearch-backward)

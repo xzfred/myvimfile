@@ -85,7 +85,7 @@ function MeetVim#init() abort " {{{
     let g:space_map.l = {'name' : '+Language Specified'}
     let g:space_map.s = {'name' : '+Searching/Symbol'}
     let g:space_map.r = {'name' : '+Registers/rings/resume'}
-    let g:space_map.d = {'name' : '+Debug'}
+    let g:space_map.d = {'name' : '+Debug/Dash'}
     let g:space_map[';'] = {'name' : '+Toggles Comment Line'}
 
     "call MeetVim#set_leader_keys('1..9', '', 'jump 1..9 window')

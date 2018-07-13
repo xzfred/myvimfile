@@ -85,7 +85,10 @@ function MeetVim#Leader#set_keys(leader, mapdict, key, callmap, ...) abort "{{{
     
     "let l:call_name = ':exe "' . l:call_name . '"'
     "exe 'nmap <leader>' . a:key . ' ' . l:call_name . '<CR>'
-    exe 'nmap <silent> ' . a:leader . a:key . ' :' . l:call_name . '<CR>'
+    "echom 'nmap <silent> ' . a:leader . a:key . ' :' . l:call_name . '<CR>'
+    let l:join = l:call_name =~ '^<Plug>' ? ' ' : ' :'
+    let l:cr = l:call_name =~ '^<Plug>' ? '' : '<CR>'
+    exe 'nmap <silent> ' . a:leader . a:key . l:join . l:call_name . l:cr
     let l:map[l:key] = [l:call_name, l:call_desc]
 endfunction  "}}}
 
